@@ -12,7 +12,10 @@ const data = [
 
 const App = () => {
   const renderItem = ({ item }) => (
-    <View style={styles.itemContainer}>
+    <View style={[
+      styles.itemContainer,
+      (item.id === '1' || item.id === '2' || item.id === '4') && styles.specialItemContainer
+    ]}>
       <View style={styles.header}>
         <Text style={styles.title}>{item.title}</Text>
       </View>
@@ -40,6 +43,9 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     marginBottom: 12,
+  },
+  specialItemContainer: {
+    backgroundColor: '#f1f8ff',
   },
   header: {
     flexDirection: 'row',
